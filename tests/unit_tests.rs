@@ -131,6 +131,32 @@ mod tests {
         );
     }
 
+    #[test]
+    fn readme_demo() {
+        let sample = "avocado bagel-coffeeDONUTEclair_food.gravy";
+
+        let result = to_camel(sample);
+        assert_eq!(result, "avocadoBagelCoffeeDONUTEclairFoodGravy");
+
+        let result = to_dot(sample);
+        assert_eq!(result, "avocado.bagel.coffee.donut.eclair.food.gravy");
+
+        let result = to_kebab(sample);
+        assert_eq!(result, "avocado-bagel-coffee-donut-eclair-food-gravy");
+
+        let result = to_pascal(sample);
+        assert_eq!(result, "AvocadoBagelCoffeeDONUTEclairFoodGravy");
+
+        let result = to_path(sample);
+        assert_eq!(result, "avocado/bagel/coffee/donut/eclair/food/gravy");
+
+        let result = to_snake(sample);
+        assert_eq!(result, "avocado_bagel_coffee_donut_eclair_food_gravy");
+
+        let result = to_title(sample);
+        assert_eq!(result, "Avocado Bagel Coffee DONUT Eclair Food Gravy");
+    }
+
     fn test_switcher_fn<F>(fun: F, samples: HashMap<&str, &str>)
         where F: Fn(&str) -> String
     {
