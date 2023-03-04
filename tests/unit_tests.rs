@@ -51,9 +51,9 @@ mod tests {
             to_camel,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("avocadoBagelCoffeeDONUTEclairFoodGravyHoney")),
-                    (lone_word_sample, String::from("Honey")),
-                    (lone_upper_word_sample, String::from("ICING")),
+                    (mixed_sample, "avocadoBagelCoffeeDONUTEclairFoodGravyHoney"),
+                    (lone_word_sample, "Honey"),
+                    (lone_upper_word_sample, "ICING"),
                 ]
             ),
         );
@@ -63,9 +63,9 @@ mod tests {
             to_dot,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("avocado.bagel.coffee.donut.eclair.food.gravy.honey")),
-                    (lone_word_sample, String::from("honey")),
-                    (lone_upper_word_sample, String::from("icing")),
+                    (mixed_sample, "avocado.bagel.coffee.donut.eclair.food.gravy.honey"),
+                    (lone_word_sample, "honey"),
+                    (lone_upper_word_sample, "icing"),
                 ]
             ),
         );
@@ -75,9 +75,9 @@ mod tests {
             to_kebab,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("avocado-bagel-coffee-donut-eclair-food-gravy-honey")),
-                    (lone_word_sample, String::from("honey")),
-                    (lone_upper_word_sample, String::from("icing")),
+                    (mixed_sample, "avocado-bagel-coffee-donut-eclair-food-gravy-honey"),
+                    (lone_word_sample, "honey"),
+                    (lone_upper_word_sample, "icing"),
                 ]
             ),
         );
@@ -87,9 +87,9 @@ mod tests {
             to_pascal,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("AvocadoBagelCoffeeDONUTEclairFoodGravyHoney")),
-                    (lone_word_sample, String::from("Honey")),
-                    (lone_upper_word_sample, String::from("ICING")),
+                    (mixed_sample, "AvocadoBagelCoffeeDONUTEclairFoodGravyHoney"),
+                    (lone_word_sample, "Honey"),
+                    (lone_upper_word_sample, "ICING"),
                 ]
             ),
         );
@@ -99,9 +99,9 @@ mod tests {
             to_path,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("avocado/bagel/coffee/donut/eclair/food/gravy/honey")),
-                    (lone_word_sample, String::from("honey")),
-                    (lone_upper_word_sample, String::from("icing")),
+                    (mixed_sample, "avocado/bagel/coffee/donut/eclair/food/gravy/honey"),
+                    (lone_word_sample, "honey"),
+                    (lone_upper_word_sample, "icing"),
                 ]
             ),
         );
@@ -111,9 +111,9 @@ mod tests {
             to_snake,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("avocado_bagel_coffee_donut_eclair_food_gravy_honey")),
-                    (lone_word_sample, String::from("honey")),
-                    (lone_upper_word_sample, String::from("icing")),
+                    (mixed_sample, "avocado_bagel_coffee_donut_eclair_food_gravy_honey"),
+                    (lone_word_sample, "honey"),
+                    (lone_upper_word_sample, "icing"),
                 ]
             ),
         );
@@ -123,20 +123,20 @@ mod tests {
             to_title,
             HashMap::from(
                 [
-                    (mixed_sample, String::from("Avocado Bagel Coffee DONUT Eclair Food Gravy Honey")),
-                    (lone_word_sample, String::from("Honey")),
-                    (lone_upper_word_sample, String::from("ICING")),
+                    (mixed_sample, "Avocado Bagel Coffee DONUT Eclair Food Gravy Honey"),
+                    (lone_word_sample, "Honey"),
+                    (lone_upper_word_sample, "ICING"),
                 ]
             ),
         );
     }
 
-    fn test_switcher_fn<F>(fun: F, samples: HashMap<&str, String>)
+    fn test_switcher_fn<F>(fun: F, samples: HashMap<&str, &str>)
         where F: Fn(&str) -> String
     {
         assert_eq!(fun(""), "");
-        for (sample, expected) in &samples {
-            assert_eq!(&fun(sample), expected);
+        for (sample, expected) in samples {
+            assert_eq!(fun(sample), String::from(expected));
         }
     }
 }
