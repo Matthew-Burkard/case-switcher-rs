@@ -1,6 +1,6 @@
 [package]
 name = "case-switcher"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 description = "Library to change the casing of strings."
 keywords = ["string", "case", "casing"]

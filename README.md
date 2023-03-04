@@ -1,7 +1,7 @@
 # Case Switcher
 
 [![Crates.io](https://img.shields.io/crates/v/case-switcher.svg)](https://crates.io/crates/case-switcher)
-[![MIT/Apache 2.0](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)](https://gitlab.com/mburkard/case-switcher-rs/LICENSE.md)
+[![Apache 2.0](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)](https://gitlab.com/mburkard/case-switcher-rs/LICENSE.md)
 
 This library provides functions to change the case convention of a string.
 
