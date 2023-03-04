@@ -1,5 +1,6 @@
 use regex::Regex;
 
+
 /// Return a version of the string in `camelCase` format.
 ///
 /// # Arguments
@@ -64,6 +65,72 @@ pub fn to_kebab(string: &str) -> String {
 }
 
 
+/// Return a version of the string in `PascalCase` format.
+///
+/// # Arguments
+///
+/// * `string` - The string to get a PascalCase version of.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::to_pascal("sample_string");
+/// assert_eq!(result, "SampleString");
+/// ```
+pub fn to_pascal(string: &str) -> String {
+    get_words(string)
+        .iter()
+        .map(|s| capitalize(s))
+        .collect::<String>()
+}
+
+
+/// Return a version of the string in `path/case` format.
+///
+/// # Arguments
+///
+/// * `string` - The string to get a path/case version of.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::to_path("sample_string");
+/// assert_eq!(result, "sample/string");
+/// ```
+pub fn to_path(string: &str) -> String {
+    lower_join(string, "/")
+}
+
+
+/// Return a version of the string in `snake_case` format.
+///
+/// # Arguments
+///
+/// * `string` - The string to get a snake_case version of.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::to_snake("sampleString");
+/// assert_eq!(result, "sample_string");
+/// ```
+pub fn to_snake(string: &str) -> String {
+    lower_join(string, "_")
+}
+
+
+/// Get all of the words in a string.
+///
+/// # Arguments
+///
+/// * `string` - The string to get words from.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::get_words("sample_string");
+/// assert_eq!(result, vec!["sample", "string"]);
+/// ```
 pub fn get_words(string: &str) -> Vec<String> {
     // Split on word boundaries and underscores
     // let re = Regex::new(r"(.*?)[!@#$%^&*()\-_=+{}\[\]\\;:',.<>/?\n\t ]").unwrap();
@@ -85,6 +152,18 @@ pub fn get_words(string: &str) -> Vec<String> {
 }
 
 
+/// Return a version of the string with the first letter capitalized.
+///
+/// # Arguments
+///
+/// * `string` - The string to get a capitalized version of.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::capitalize("sample_string");
+/// assert_eq!(result, "Sample_string");
+/// ```
 pub fn capitalize(string: &str) -> String {
     let mut chars = string.chars();
     if let Some(first_char) = chars.next() {
