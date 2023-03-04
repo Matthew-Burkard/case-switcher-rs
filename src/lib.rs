@@ -119,6 +119,27 @@ pub fn to_snake(string: &str) -> String {
 }
 
 
+/// Return a version of the string in `Title Case` format.
+///
+/// # Arguments
+///
+/// * `string` - The string to get a Title Case version of.
+///
+/// # Examples
+///
+/// ```
+/// let result = case_switcher::to_title("sample_string");
+/// assert_eq!(result, "Sample String");
+/// ```
+pub fn to_title(string: &str) -> String {
+    get_words(string)
+        .iter()
+        .map(|s| capitalize(s))
+        .collect::<Vec<String>>()
+        .join(" ")
+}
+
+
 /// Get all of the words in a string.
 ///
 /// # Arguments

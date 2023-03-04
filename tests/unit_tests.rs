@@ -1,7 +1,10 @@
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
-    use case_switcher::{to_camel, to_dot, capitalize, get_words, to_kebab, to_pascal, to_path, to_snake};
+
+    use case_switcher::{
+        capitalize, get_words, to_camel, to_dot, to_kebab, to_pascal, to_path, to_snake, to_title
+    };
 
     #[test]
     fn test_get_words() {
@@ -91,7 +94,6 @@ mod tests {
             ),
         );
 
-
         // path/case
         test_switcher_fn(
             to_path,
@@ -104,7 +106,6 @@ mod tests {
             ),
         );
 
-
         // snake_case
         test_switcher_fn(
             to_snake,
@@ -113,6 +114,18 @@ mod tests {
                     (mixed_sample, String::from("avocado_bagel_coffee_donut_eclair_food_gravy_honey")),
                     (lone_word_sample, String::from("honey")),
                     (lone_upper_word_sample, String::from("icing")),
+                ]
+            ),
+        );
+
+        // Title Case
+        test_switcher_fn(
+            to_title,
+            HashMap::from(
+                [
+                    (mixed_sample, String::from("Avocado Bagel Coffee DONUT Eclair Food Gravy Honey")),
+                    (lone_word_sample, String::from("Honey")),
+                    (lone_upper_word_sample, String::from("ICING")),
                 ]
             ),
         );
