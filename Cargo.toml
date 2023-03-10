@@ -1,14 +1,12 @@
 [package]
 name = "case-switcher"
-version = "1.0.2"
+version = "1.0.3"
 edition = "2021"
 description = "Library to change the casing of strings."
 keywords = ["string", "case", "casing"]
 license = "Apache-2.0"
 repository = "https://gitlab.com/mburkard/case-switcher-rs"
 readme = "README.md"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 regex = "1.7.1"

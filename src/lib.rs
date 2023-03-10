@@ -154,7 +154,6 @@ pub fn to_title(string: &str) -> String {
 /// ```
 pub fn get_words(string: &str) -> Vec<String> {
     // Split on word boundaries and underscores
-    // let re = Regex::new(r"(.*?)[!@#$%^&*()\-_=+{}\[\]\\;:',.<>/?\n\t ]").unwrap();
     let re = Regex::new(r"(.*?)[\W_]").unwrap();
     let words = re.replace_all(string, "$1 $3");
 
